@@ -1,0 +1,96 @@
+﻿<section id="alerts-view" class="mainbar" data-ng-controller="alerts as vm">
+    <div data-ng-show="vm.isBusy" class="page-splash dissolve-animation">
+        <div data-cc-spinner="vm.spinnerOptions"></div>
+        <div class="page-splash-message page-splash-message-subtle">{{vm.busyMessage}}</div>
+    </div>
+    <div data-ng-controller="profile as p">
+        &nbsp;<br />
+        <div data-ng-show="p!=null && p.students!=null && p.students.length>0">
+            <ul class="nav nav-tabs nav-pills nav-stacked">
+                <li data-ng-repeat="student in p.students" data-ng-class="{'active':{{(CurrentStudent==''||CurrentStudent==null)?'0':CurrentStudent.Id.toString()}}=={{student.Id.toString()}}}">
+                    <a data-toggle="tab" data-ng-click="vm.setStudentId(student)">
+                        <img data-ng-src="content/images/blankperson.png" alt="{{student.FirstName}} {{student.LastName}}" class="input-xsmall" />
+                        <span class="icon-exclamation-sign smallCornerIcon" data-ng-if="student.AlertFlag"></span>
+                        {{student.FirstName}} {{student.LastName}}
+                    </a>
+                </li>
+            </ul>
+        </div>
+    </div>
+    <section class="matter">
+        <div class="container-fluid">
+            <div class="row-fluid">
+                <br />
+                <div class="page-title text-center">
+                    <h1><strong>{{vm.student.FirstName}} {{vm.student.LastName}}</strong></h1>
+                </div>
+            </div>
+            <div class="row-fluid">
+                <div class="span10" style="width: 80%; margin-left: 10%; margin-right: 10%;">
+                    <div class="widget wviolet">
+                        <div data-cc-widget-header title="{{vm.page.currentAlerts}}"
+                             allow-collapse="true">
+                        </div>
+                        <div class="widget-content">
+                            <table class="table table-condensed table-center">
+                                <thead class="widget widget-head-centerpage widget-lbl-underline">
+                                    <!--<div class=" widget-content text-center text-info">-->
+                                    <!--<table class="table table-condensed table-striped">-->
+                                    <!--<thead>-->
+                                    <tr>
+                                        <th>Alert Date</th>
+                                        <th>Message</th>
+                                        <th></th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <!--<tr data-ng-repeat="s in vm.academicAlerts | filter: { AcknowledgedDate: null }">-->
+                                    <tr data-ng-repeat="s in vm.academicAlerts  | NotInArray :  userName : 'AcknowledgedBy' : 'AcknowledgedDate' | orderBy : 'CreateDate' : true" style="{{s.IsRowBold ? 'font-weight: bold' : ''}}">
+                                        <td>{{s.CreateDate}}</td>
+                                        <td>{{s.AlertMessage}}</td>
+                                        <td>
+                                            <i class="pull-right icon-exclamation-sign icon-2x"></i><input ng-show="vm.roleValidate('Guardian') || vm.roleValidate('Parent')" class="pull-right" type="button" value="Acknowledge" data-ng-click="vm.saveAlertAcknowledgement(s)" />
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+            <div class="row-fluid">
+                <div class="span10" style="width: 80%; margin-left: 10%; margin-right: 10%;">
+                    <div class="widget wviolet">
+                        <div data-cc-widget-header title="{{vm.page.archivedAlerts}}"
+                             allow-collapse="true">
+                        </div>
+                        <div class="widget-content">
+                            <table class="table table-condensed">
+                                <thead class="widget widget-head-centerpage widget-lbl-underline">
+                                    <tr>
+                                        <th>Alert Date</th>
+                                        <th>Message</th>
+                                        <th>Acknowledge Date</th>
+                                        <th>Acknowledge By</th>
+                                        <th></th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr data-ng-repeat="s in vm.academicAlerts | filter: { AcknowledgedDate: '!!' }">
+                                        <td>{{s.CreateDate}}</td>
+                                        <td>{{s.AlertMessage}}</td>
+                                        <td>{{s.AcknowledgedDate}}</td>
+                                        <td>{{s.AcknowledgedUser}}</td>
+                                        <td></td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+</section>

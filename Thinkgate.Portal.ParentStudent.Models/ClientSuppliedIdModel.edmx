@@ -1,0 +1,122 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="ThinkgateParentStudentModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2008" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="ClientSuppliedIdentification">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="aspnetId" Type="nvarchar" MaxLength="128" Nullable="false" />
+          <Property Name="clientSuppliedId" Type="nvarchar" MaxLength="128" Nullable="false" />
+          <Property Name="clientSuppliedStudentId" Type="nvarchar" MaxLength="128" />
+          <Property Name="studentId" Type="int" />
+        </EntityType>
+        <EntityType Name="ClientSuppliedIdentification_LEA_Xref">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="ClientID" Type="nvarchar" MaxLength="75" Nullable="false" />
+          <Property Name="ClientSuppliedIdentificationID" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityContainer Name="ThinkgateParentStudentModelStoreContainer">
+          <EntitySet Name="ClientSuppliedIdentification" EntityType="Self.ClientSuppliedIdentification" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="ClientSuppliedIdentification_LEA_Xref" EntityType="Self.ClientSuppliedIdentification_LEA_Xref" Schema="dbo" store:Type="Tables" />
+        </EntityContainer>
+      </Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="ThinkgateParentStudentModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="ClientSuppliedIdentification">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="aspnetId" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="clientSuppliedId" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="clientSuppliedStudentId" Type="String" MaxLength="128" FixedLength="false" Unicode="true" />
+          <Property Name="studentId" Type="Int32" />
+          <NavigationProperty Name="ClientSuppliedIdentification_LEA_Xref" Relationship="ThinkgateParentStudentModel.ClientSuppliedIdentificationClientSuppliedIdentification_LEA_Xref" FromRole="ClientSuppliedIdentification" ToRole="ClientSuppliedIdentification_LEA_Xref" />
+        </EntityType>
+        <EntityContainer Name="ClientSuppliedIdEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="ClientSuppliedIdentifications" EntityType="Self.ClientSuppliedIdentification" />
+          <EntitySet Name="ClientSuppliedIdentification_LEA_Xref" EntityType="ThinkgateParentStudentModel.ClientSuppliedIdentification_LEA_Xref" />
+          <AssociationSet Name="ClientSuppliedIdentificationClientSuppliedIdentification_LEA_Xref" Association="ThinkgateParentStudentModel.ClientSuppliedIdentificationClientSuppliedIdentification_LEA_Xref">
+            <End Role="ClientSuppliedIdentification" EntitySet="ClientSuppliedIdentifications" />
+            <End Role="ClientSuppliedIdentification_LEA_Xref" EntitySet="ClientSuppliedIdentification_LEA_Xref" />
+          </AssociationSet>
+        </EntityContainer>
+        <EntityType Name="ClientSuppliedIdentification_LEA_Xref">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="ClientID" Type="String" Nullable="false" MaxLength="75" FixedLength="false" Unicode="true" />
+          <Property Name="ClientSuppliedIdentificationID" Type="Int32" Nullable="false" />
+        </EntityType>
+        <Association Name="ClientSuppliedIdentificationClientSuppliedIdentification_LEA_Xref">
+          <End Type="ThinkgateParentStudentModel.ClientSuppliedIdentification" Role="ClientSuppliedIdentification" Multiplicity="1" />
+          <End Type="ThinkgateParentStudentModel.ClientSuppliedIdentification_LEA_Xref" Role="ClientSuppliedIdentification_LEA_Xref" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ClientSuppliedIdentification">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="ClientSuppliedIdentification_LEA_Xref">
+              <PropertyRef Name="ClientSuppliedIdentificationID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="ThinkgateParentStudentModelStoreContainer" CdmEntityContainer="ClientSuppliedIdEntities">
+          <EntitySetMapping Name="ClientSuppliedIdentifications">
+            <EntityTypeMapping TypeName="ThinkgateParentStudentModel.ClientSuppliedIdentification">
+              <MappingFragment StoreEntitySet="ClientSuppliedIdentification">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="aspnetId" ColumnName="aspnetId" />
+                <ScalarProperty Name="clientSuppliedId" ColumnName="clientSuppliedId" />
+                <ScalarProperty Name="clientSuppliedStudentId" ColumnName="clientSuppliedStudentId" />
+                <ScalarProperty Name="studentId" ColumnName="studentId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="ClientSuppliedIdentification_LEA_Xref">
+            <EntityTypeMapping TypeName="ThinkgateParentStudentModel.ClientSuppliedIdentification_LEA_Xref">
+              <MappingFragment StoreEntitySet="ClientSuppliedIdentification_LEA_Xref">
+                <ScalarProperty Name="ClientSuppliedIdentificationID" ColumnName="ClientSuppliedIdentificationID" />
+                <ScalarProperty Name="ClientID" ColumnName="ClientID" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="true" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

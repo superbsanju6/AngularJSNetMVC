@@ -1,0 +1,111 @@
+﻿<!DOCTYPE html>
+<html data-ng-app="app">
+<head>
+    <style>
+        /* This helps the ng-show/ng-hide animations start at the right place. */
+        /* Since Angular has this but needs to load, this gives us the class early. */
+        .ng-hide {
+            display: none !important;
+        }
+    </style>
+
+    <title data-ng-bind="title">Ohio | Parent-Student Portal</title>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge, chrome=1" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no" />
+
+    <script>
+        // Must be first. IE10 mobile viewport fix
+        if ("-ms-user-select" in document.documentElement.style && navigator.userAgent.match(/IEMobile\/10\.0/)) {
+            var msViewportStyle = document.createElement("style");
+            var mq = "@-ms-viewport{width:auto!important}";
+            msViewportStyle.appendChild(document.createTextNode(mq));
+            document.getElementsByTagName("head")[0].appendChild(msViewportStyle);
+        }
+    </script>
+
+    <link href="content/ie10mobile.css" rel="stylesheet" />
+    <link href="content/bootstrap.min.css" rel="stylesheet" />
+    <link href="content/font-awesome.min.css" rel="stylesheet" />
+    <link href="content/toastr.css" rel="stylesheet" />
+    <link href="content/customtheme.css" rel="stylesheet">
+    <link href="content/bootstrap-responsive.min.css" rel="stylesheet" />
+    <link href="content/styles.css" rel="stylesheet" />
+    
+    <link href="content/treeview.css" rel="stylesheet" />
+</head>
+<body>
+
+    <!-- Login process called before shell.html(guts of the app) using data-ng-include (remember, no more ng-, now data-ng-) -->
+    <!--<div data-ng-include="'app/views/loginpage/loginpage.html'"></div>-->
+    <!-- After Login process this is the shell of the application -->
+    <div data-ng-include="'app/views/layout/shell.html'" class="wrapper-cls"></div>
+    <div id="splash-page" data-ng-show="false">
+        <div class="page-splash">
+            
+            <div class="page-splash-message">
+                Parent-Student Portal Login Page...
+
+            </div>
+            <div class="progress progress-striped active page-progress-bar">
+                <div class="bar"></div>
+            </div>
+        </div>
+    </div>
+
+
+    <span data-cc-scroll-to-top></span>
+
+    <!-- Vendor Scripts -->
+    <script src="scripts/jquery-2.0.3.js"></script>
+    <script src="scripts/angular.js"></script>
+    <script src="scripts/angular-animate.js"></script>
+    <script src="Scripts/angular-resource.js"></script>
+    <script src="scripts/angular-route.js"></script>
+    <script src="scripts/angular-sanitize.js"></script>
+    <script src="scripts/bootstrap.js"></script>
+    <script src="scripts/toastr.js"></script>
+    <script src="scripts/moment.js"></script>
+    <script src="scripts/ui-bootstrap-tpls-0.6.0.js"></script>
+    <script src="scripts/spin.js"></script>
+    <script src="scripts/underscore.js"></script>
+    <script src="scripts/line_intersection.js"></script>
+
+    <!-- Bootstrapping -->
+    <script src="app/app.js"></script>
+    <script src="app/config.js"></script>
+    <script src="app/config.exceptionHandler.js"></script>
+    <script src="app/config.route.js"></script>
+
+    <!-- common Modules -->
+    <script src="app/common/common.js"></script>
+    <script src="app/common/logger.js"></script>
+    <script src="app/common/spinner.js"></script>
+    <script src="app/common/filters.js"></script>
+
+    <!-- common.bootstrap Modules -->
+    <script src="app/common/bootstrap/bootstrap.dialog.js"></script>
+    
+    <!--Google Charts-->
+    <script type="text/javascript" src="https://www.google.com/jsapi"></script>
+
+    <!-- app - these are the controllers for their respective html partials -->
+    <script src="app/views/profileselection/profile.js"></script>   <!--this is the Student Selection screen-->
+    <script src="app/views/assessment/assessments.js"></script>     <!--this is the Assessments screen-->
+    <script src="app/views/studentdashboard/dashboard.js"></script> <!--this is the Student Detail screen-->
+    <script src="app/views/layout/shell.js"></script>               <!--this is the shell, calls layout and login screen-->
+    <script src="app/views/layout/sidebar.js"></script>             <!--this is part of layout along with topnav--> 
+    <script src="app/views/loginpage/loginpage.js"></script>        <!--this is the login screen--> 
+    <script src="app/views/alert/alerts.js"></script>               <!--this is the Alerts screen, to be refactored to alerts.html-->
+    <script src="app/views/links/links.js"></script>                <!--this is the links screen-->
+    
+
+    <!-- app Services -->
+    <script src="app/services/datacontext.js"></script>
+    <script src="app/services/directives.js"></script>
+    <script src="app/services/entityMngrFactory.js"></script>
+    <script src="app/services/serviceHelperFactory.js"></script>
+    <script src="app/services/loginService.js"></script>
+</body>
+</html>
+

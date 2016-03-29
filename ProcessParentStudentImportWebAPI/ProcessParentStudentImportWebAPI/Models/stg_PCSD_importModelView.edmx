@@ -1,0 +1,105 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="VersaITBaseTME3V3QAModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2008" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'VersaITBaseTME3V3QA.dbo.stg_PCSD_import' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <EntityType Name="stg_PCSD_import">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="StudentID" Type="nvarchar" MaxLength="255" />
+          <Property Name="ParentID" Type="nvarchar" MaxLength="255" />
+          <Property Name="StudentLastName" Type="nvarchar" MaxLength="255" />
+          <Property Name="StudentFirstName" Type="nvarchar" MaxLength="255" />
+          <Property Name="StudentMiddleName" Type="nvarchar" MaxLength="255" />
+          <Property Name="ParentLastName" Type="nvarchar" MaxLength="255" />
+          <Property Name="ParentFirstName" Type="nvarchar" MaxLength="255" />
+          <Property Name="CounselorLastName" Type="nvarchar" MaxLength="255" />
+        </EntityType>
+        <EntityContainer Name="VersaITBaseTME3V3QAModelStoreContainer">
+          <EntitySet Name="stg_PCSD_import" EntityType="Self.stg_PCSD_import" store:Type="Tables" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [stg_PCSD_import].[ID] AS [ID], 
+    [stg_PCSD_import].[StudentID] AS [StudentID], 
+    [stg_PCSD_import].[ParentID] AS [ParentID], 
+    [stg_PCSD_import].[StudentLastName] AS [StudentLastName], 
+    [stg_PCSD_import].[StudentFirstName] AS [StudentFirstName], 
+    [stg_PCSD_import].[StudentMiddleName] AS [StudentMiddleName], 
+    [stg_PCSD_import].[ParentLastName] AS [ParentLastName], 
+    [stg_PCSD_import].[ParentFirstName] AS [ParentFirstName], 
+    [stg_PCSD_import].[CounselorLastName] AS [CounselorLastName]
+    FROM [dbo].[stg_PCSD_import] AS [stg_PCSD_import]</DefiningQuery>
+          </EntitySet>
+        </EntityContainer>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="VersaITBaseTME3V3QAModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="stg_PCSD_import">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="StudentID" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="ParentID" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="StudentLastName" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="StudentFirstName" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="StudentMiddleName" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="ParentLastName" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="ParentFirstName" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="CounselorLastName" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityContainer Name="stg_PCSD_importModelViewEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="stg_PCSD_import" EntityType="Self.stg_PCSD_import" />
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="VersaITBaseTME3V3QAModelStoreContainer" CdmEntityContainer="stg_PCSD_importModelViewEntities">
+          <EntitySetMapping Name="stg_PCSD_import">
+            <EntityTypeMapping TypeName="VersaITBaseTME3V3QAModel.stg_PCSD_import">
+              <MappingFragment StoreEntitySet="stg_PCSD_import">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="StudentID" ColumnName="StudentID" />
+                <ScalarProperty Name="ParentID" ColumnName="ParentID" />
+                <ScalarProperty Name="StudentLastName" ColumnName="StudentLastName" />
+                <ScalarProperty Name="StudentFirstName" ColumnName="StudentFirstName" />
+                <ScalarProperty Name="StudentMiddleName" ColumnName="StudentMiddleName" />
+                <ScalarProperty Name="ParentLastName" ColumnName="ParentLastName" />
+                <ScalarProperty Name="ParentFirstName" ColumnName="ParentFirstName" />
+                <ScalarProperty Name="CounselorLastName" ColumnName="CounselorLastName" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="true" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

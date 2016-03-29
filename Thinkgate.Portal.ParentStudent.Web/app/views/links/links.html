@@ -1,0 +1,107 @@
+﻿<section id="links-view" class="mainbar" data-ng-controller="links as vm">
+    <div data-ng-show="vm.isBusy" class="page-splash dissolve-animation">
+        <div data-cc-spinner="vm.spinnerOptions"></div>
+        <div class="page-splash-message page-splash-message-subtle">{{vm.busyMessage}}</div>
+    </div>
+    <div data-ng-controller="profile as p">
+        &nbsp;<br />
+        <div data-ng-show="p!=null && p.students!=null && p.students.length>0">
+            <ul class="nav nav-tabs nav-pills nav-stacked">
+                <li data-ng-repeat="student in p.students" data-ng-class="{'active':{{(CurrentStudent==''||CurrentStudent==null)?'0':CurrentStudent.Id.toString()}}=={{student.Id.toString()}}}">
+                    <a data-toggle="tab" data-ng-click="vm.setStudentId(student)">
+                        <img data-ng-src="content/images/blankperson.png" alt="{{student.FirstName}} {{student.LastName}}" class="input-xsmall" />
+                        <span class="icon-exclamation-sign smallCornerIcon" data-ng-if="student.AlertFlag"></span>
+                        {{student.FirstName}} {{student.LastName}}
+                    </a>
+                </li>
+            </ul>
+        </div>
+    </div>
+    <section class="matter">
+        <div class="container-fluid">
+            <div class="row-fluid">
+
+                <div class="page-title text-center">
+                    <h1><strong>{{vm.student.FirstName}} {{vm.student.LastName}}</strong></h1>
+                </div>
+
+            </div>
+            <!--<br />-->
+            <div class="row-fluid">
+                <div class="page-title text-center">
+                    <h2><strong>{{vm.page.title}}</strong></h2>
+                </div>
+            </div>
+            <br />
+            <div class="row-fluid">
+                <div class="span12 center-relative">
+                    <div class="page-title text-center">
+                        <div class="widget-content text-center">
+                            <div align="center" class="well well-large widget widget-details-large">
+                                <br />
+                                <table class="table-condensed table-link">
+                                    <thead>
+                                        <tr>
+                                            <th></th>
+                                            <th>Resource Name</th>
+                                            <th>Attachments/Reference Links</th>
+                                            <th>Assign Date</th>
+                                            <th>Assignment Begin Date</th>
+                                            <th>Assignment End Date</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody >
+                                        <!--<tr>
+                                            <td class="bold text-right">District Website: </td>
+                                            <td><strong>{{l.LinkName}}</strong></td>
+                                        </tr>-->
+                                        <tr data-ng-repeat="l in vm.linkinfo">
+                                            <td>{{$index + 1}}</td>
+                                            <td class="text-right">{{l.LinkName}}: </td>
+                                            <td>
+                                                <!--ng-class="l.IsAttachment ? 'white' : 'ablue'"-->
+                                                <a ng-href="{{l.IsAttachment ? l.AttachmentURL : l.Url }}" target="_blank" >
+                                                    {{l.Url}}
+                                                </a>
+                                            </td>
+                                            <td>{{ l.AssignDate}}</td>
+                                            <td>{{ l.AssignBeginDate}}</td>
+                                            <td>{{ l.AssignEndDate}}</td>
+                                        </tr>
+                                        <!--<tr>
+                                            <td class="bold text-right">Attendance Hotline: </td>
+                                            <td>{{l.Phone}}</td>
+                                        </tr>-->
+                                    </tbody>
+                                </table>
+                                <br />
+                            </div>
+                        </div>
+                        <div class="widget-foot">
+                            <div class="clearfix"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row-fluid hide">
+            <div class="span6">
+                <div class="widget wgreen">
+                    <div data-cc-widget-header title="{{vm.news.title}}"
+                         allow-collapse="false">
+                    </div>
+                    <div class="widget-content text-center text-info">
+                        <small>{{vm.news.description}}</small>
+                    </div>
+                    <div class="widget-foot">
+                        <div class="clearfix"></div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+    </section>
+</section>
+
+

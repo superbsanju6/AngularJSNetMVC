@@ -1,0 +1,76 @@
+﻿<section id="profile-view" class="" data-ng-controller="profile as vm">
+    <section class="matter">
+        <div class="container-fluid">
+            <div class="row-fluid span9" style="width: 80%; margin-left:15%; margin-right: 15%;">
+                <div class="pull-left">
+                    <a href="http://thinkgate.com" target="_blank">
+                        <img data-ng-src="content/images/thinkgate.png" />
+                    </a>
+                </div>
+                <div class="input-large pull-right">
+                    <br />
+         
+                    <a href="http://education.ohio.gov" target="_blank">
+                        <img data-ng-src="content/images/OHDemoLogo.png" /><br>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+    <div class="divider"></div>
+    <div class="divider"></div>
+    <div class="container-fluid">
+        <div class="row-fluid">
+            <div class="span9" style="width: 80%; margin-left:15%; margin-right: 15%;">
+                <div class="today-datas student-selection">
+                    <div class="widget wviolet">
+                        <div data-cc-widget-header title="{{vm.title}}"
+                             allow-collapse="false">
+                            <small>{{vm.news.description}}</small>
+                        </div>
+                        <div class="well widget-content">
+                            <div>
+                                <div>
+                                    <ul class="thumbnails shuffle-animation">
+                                        <li class="thumbnail" data-ng-repeat="s in vm.students">
+                                            <div class="text-center user-pic">
+                                                <a href="" data-ng-click="getProfile(s)">
+                                                    <!--<img data-ng-src={{vm.student.imgUrl}}>this is how that should be done once binded to model</img>-->
+                                                    <img class="nav-user-pic nav-tabs" data-ng-src="content/images/blankperson.png" alt="" />
+                                                    <!-- This will by using render to show a student picture thumbnail -->
+                                                </a>
+                                            </div>
+                                            <div class="datas-text clearfix">
+                                                <span class="user-details bold">{{s.FirstName}}</span>
+                                                <small class="datas-text"> {{s.LastName}}</small>
+
+                                            </div>
+                                            <div class="right">
+                                                <span class="icon-exclamation-sign smallCornerIcon icon-2x ng-scope top-5 right0" data-ng-if="s.AlertFlag" style=""></span>
+                                                <!--<div class="today-datas padd-left10px-controlAdjust">-->
+                                                <!--<div class="bred input-small centered" ng-if="s.AlertFlag">
+                                        <i class="padd-left7px-iconAdjust input-small icon-exclamation-sign"></i>
+                                        <div class="today-datas">
+                                            <small style="padding-right: 2px;" class="text-center">Student Alerts</small>
+                                        </div>
+                                        <div class="clearfix"></div>
+                                    </div>-->
+                                                <!--</div>-->
+                                            </div>
+                                            <!--<div class="clearfix"></div>-->
+                                        </li>
+
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    
+    </div>
+   
+</section>
+

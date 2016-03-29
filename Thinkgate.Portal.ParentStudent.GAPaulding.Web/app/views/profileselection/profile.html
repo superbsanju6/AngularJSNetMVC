@@ -1,0 +1,82 @@
+<section id="profile-view" class="" data-ng-controller="profile as vm">
+    <section class="matter">
+        <div class="container-fluid">
+
+        </div>
+    </section>
+    <div class="divider"></div>
+    <div class="divider"></div>
+    <div class="container-fluid mainbar">
+        <div class="row-fluid">
+            <div class="span12" >
+                <div class="today-datas">
+                    <div class="widget wviolet">
+                        <div data-cc-widget-header title="{{vm.maintitle}}"
+                             allow-collapse="true">
+                            <small>Paulding County School District Parent Portal</small>
+                        </div>
+                        <div class="well widget-content">
+                            <p>
+                                With thorough planning, career exploration, and support from school counselors as well as
+                                parents/guardians, students make college and career ready plans and decisions. For your
+                                student, college and career ready could mean college/university, technical college, specialty
+                                school, military or a skilled job. Beginning in the 8th grade year, advisement prepares
+                                students during this pivotal year to prepare for high school. Each school year from 8th grade
+                                through the Senior year, critical planning is completed that takes careful thought about
+                                course, career, and post high school decisions.
+                            </p>
+                            <p>
+                                This Parent Portal has been designed to assist parents in helping their students make a
+                                successful transition into high school as well as the career transition after high school. Five
+                                checklists, one for each year beginning in 8th grade and continuing through graduation,
+                                provide important information regarding BRIDGE Advisement and tasks to complete in
+                                preparation for graduation and beyond. Several resources are linked to this site for your
+                                convenience. One of the most important resources that will be used throughout the middle
+                                and high school years is GaCollege411 <a class="blue" href="http://www.gacollege411.org" target="_blank">www.gacollege411.org</a>.
+                                As you utilize the Parent Portal you will be provided "alerts" regarding tasks for students and families associated with BRIDGE advisement.
+                            </p>
+                            <p>
+                                It is our hope that you find the Portal beneficial to you and your student. If you have any additional needs, please don't hesitate to reach out and contact your local school counselor.
+                            </p>
+                        </div>
+                    </div>
+
+                    <div class="widget wviolet student-selection">
+                        <div data-cc-widget-header title="{{vm.title}}"
+                             allow-collapse="true">
+                            <small>{{vm.news.description}}</small>
+                        </div>
+                        <div class="well widget-content">
+                            <div>
+                                <div>
+                                    <ul class="thumbnails shuffle-animation">
+                                        <li class="thumbnail" data-ng-repeat="s in vm.students">
+                                            <div class="text-center user-pic">
+                                                <a href="" data-ng-click="getProfile(s)">
+                                                    <img class="nav-user-pic nav-tabs" data-ng-src="{{s.ProfileImageUrl !=null && s.ProfileImageUrl || 'content/images/blankperson.png'}}" alt="{{s.FirstName + ' ' + s.LastName}}" />
+                                                </a>
+                                            </div>
+                                            <div class="datas-text clearfix">
+                                                <span class="user-details bold">{{s.FirstName}}</span>
+                                                <small class="datas-text"> {{s.LastName}}</small>
+                                            </div>
+                                            <!--<div class="widget-content bgreen" >-->
+                                            <!--<div class="right"><span class="icon-exclamation-sign smallCornerIcon icon-2x ng-scope top-5 right0" ng-if="s.AlertFlag"></span></div>-->
+                                            <!--<div class="datas-text pull-right">
+                                Student Alerts
+                            </div>-->
+                                            <div class="clearfix"></div>
+                                            <!--</div>-->
+                                            <div class="clearfix"></div>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+

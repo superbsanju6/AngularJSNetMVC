@@ -1,0 +1,119 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 2013
+VisualStudioVersion = 12.0.30723.0
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Thinkgate.Portal.ParentStudent.API", "Thinkgate.Portal.ParentStudent.API\Thinkgate.Portal.ParentStudent.API.csproj", "{DF1C2390-01BD-46E2-BFA5-EFF52CA7B549}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = ".nuget", ".nuget", "{7B2ECDF3-DF27-446C-B0F0-94FD582ADE7C}"
+	ProjectSection(SolutionItems) = preProject
+		.nuget\NuGet.Config = .nuget\NuGet.Config
+		.nuget\NuGet.exe = .nuget\NuGet.exe
+		.nuget\NuGet.targets = .nuget\NuGet.targets
+	EndProjectSection
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Thinkgate.Portal.ParentStudent.Models", "Thinkgate.Portal.ParentStudent.Models\Thinkgate.Portal.ParentStudent.Models.csproj", "{8CF49960-CCEB-48D6-8372-0094A0CD54DF}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Thinkgate.Portal.ParentStudent.OH.Web", "Thinkgate.Portal.ParentStudent.Web\Thinkgate.Portal.ParentStudent.OH.Web.csproj", "{B32F52C6-B84A-4EFC-AF65-E264FE13DA1A}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Thinkgate.Base", "..\Thinkgate\Thinkgate.Base\Thinkgate.Base.csproj", "{0B497521-07C3-4ABB-8686-9597E5B0AE51}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Thinkgate.BaseTypes", "..\Thinkgate.BaseTypes\Thinkgate.BaseTypes.csproj", "{84F11540-5561-47B9-8C4E-B8020BE13772}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Thinkgate.Utilities", "..\Thinkgate.Utilities\Thinkgate.Utilities.csproj", "{57FA2E9A-FA67-4E88-9974-7CBB5F3138A8}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Thinkgate.Core", "..\Thinkgate.Core\Thinkgate.Core.csproj", "{0279A3EF-07C1-4D88-8BBE-BD1D7B29A79D}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Thinkgate.ExceptionHandling", "..\Thinkgate.ExceptionHandling\Thinkgate.ExceptionHandling.csproj", "{F694EC9F-AC5A-48A7-AD72-6B84C488B5CE}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Thinkgate.Services.Contracts", "..\Thinkgate.Services\Contracts\Thinkgate.Services.Contracts.csproj", "{A438F98F-771E-4474-8A83-68722306F249}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Thinkgate.Portal.ParentStudent.GAPaulding.Web", "Thinkgate.Portal.ParentStudent.GAPaulding.Web\Thinkgate.Portal.ParentStudent.GAPaulding.Web.csproj", "{385E8317-7FD7-4E5D-95D8-042A9DA41265}"
+EndProject
+Global
+	GlobalSection(TeamFoundationVersionControl) = preSolution
+		SccNumberOfProjects = 11
+		SccEnterpriseProvider = {4CA58AB2-18FA-4F8D-95D4-32DDF27D184C}
+		SccTeamFoundationServer = http://172.20.0.42:8080/tfs/primarycollection
+		SccLocalPath0 = .
+		SccProjectUniqueName1 = Thinkgate.Portal.ParentStudent.API\\Thinkgate.Portal.ParentStudent.API.csproj
+		SccProjectName1 = Thinkgate.Portal.ParentStudent.API
+		SccLocalPath1 = Thinkgate.Portal.ParentStudent.API
+		SccProjectUniqueName2 = Thinkgate.Portal.ParentStudent.Models\\Thinkgate.Portal.ParentStudent.Models.csproj
+		SccProjectName2 = Thinkgate.Portal.ParentStudent.Models
+		SccLocalPath2 = Thinkgate.Portal.ParentStudent.Models
+		SccProjectUniqueName3 = Thinkgate.Portal.ParentStudent.Web\\Thinkgate.Portal.ParentStudent.OH.Web.csproj
+		SccProjectName3 = Thinkgate.Portal.ParentStudent.Web
+		SccLocalPath3 = Thinkgate.Portal.ParentStudent.Web
+		SccProjectUniqueName4 = ..\\Thinkgate\\Thinkgate.Base\\Thinkgate.Base.csproj
+		SccProjectName4 = ../Thinkgate/Thinkgate.Base
+		SccLocalPath4 = ..\\Thinkgate\\Thinkgate.Base
+		SccProjectUniqueName5 = ..\\Thinkgate.BaseTypes\\Thinkgate.BaseTypes.csproj
+		SccProjectName5 = ../Thinkgate.BaseTypes
+		SccLocalPath5 = ..\\Thinkgate.BaseTypes
+		SccProjectUniqueName6 = ..\\Thinkgate.Utilities\\Thinkgate.Utilities.csproj
+		SccProjectName6 = ../Thinkgate.Utilities
+		SccLocalPath6 = ..\\Thinkgate.Utilities
+		SccProjectUniqueName7 = ..\\Thinkgate.Core\\Thinkgate.Core.csproj
+		SccProjectName7 = ../Thinkgate.Core
+		SccLocalPath7 = ..\\Thinkgate.Core
+		SccProjectUniqueName8 = ..\\Thinkgate.ExceptionHandling\\Thinkgate.ExceptionHandling.csproj
+		SccProjectName8 = ../Thinkgate.ExceptionHandling
+		SccLocalPath8 = ..\\Thinkgate.ExceptionHandling
+		SccProjectUniqueName9 = ..\\Thinkgate.Services\\Contracts\\Thinkgate.Services.Contracts.csproj
+		SccProjectName9 = ../Thinkgate.Services/Contracts
+		SccLocalPath9 = ..\\Thinkgate.Services\\Contracts
+		SccProjectUniqueName10 = Thinkgate.Portal.ParentStudent.GAPaulding.Web\\Thinkgate.Portal.ParentStudent.GAPaulding.Web.csproj
+		SccProjectName10 = Thinkgate.Portal.ParentStudent.GAPaulding.Web
+		SccLocalPath10 = Thinkgate.Portal.ParentStudent.GAPaulding.Web
+	EndGlobalSection
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{DF1C2390-01BD-46E2-BFA5-EFF52CA7B549}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{DF1C2390-01BD-46E2-BFA5-EFF52CA7B549}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{DF1C2390-01BD-46E2-BFA5-EFF52CA7B549}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{DF1C2390-01BD-46E2-BFA5-EFF52CA7B549}.Release|Any CPU.Build.0 = Release|Any CPU
+		{8CF49960-CCEB-48D6-8372-0094A0CD54DF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8CF49960-CCEB-48D6-8372-0094A0CD54DF}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8CF49960-CCEB-48D6-8372-0094A0CD54DF}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8CF49960-CCEB-48D6-8372-0094A0CD54DF}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B32F52C6-B84A-4EFC-AF65-E264FE13DA1A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B32F52C6-B84A-4EFC-AF65-E264FE13DA1A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B32F52C6-B84A-4EFC-AF65-E264FE13DA1A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B32F52C6-B84A-4EFC-AF65-E264FE13DA1A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{0B497521-07C3-4ABB-8686-9597E5B0AE51}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0B497521-07C3-4ABB-8686-9597E5B0AE51}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0B497521-07C3-4ABB-8686-9597E5B0AE51}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0B497521-07C3-4ABB-8686-9597E5B0AE51}.Release|Any CPU.Build.0 = Release|Any CPU
+		{84F11540-5561-47B9-8C4E-B8020BE13772}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{84F11540-5561-47B9-8C4E-B8020BE13772}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{84F11540-5561-47B9-8C4E-B8020BE13772}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{84F11540-5561-47B9-8C4E-B8020BE13772}.Release|Any CPU.Build.0 = Release|Any CPU
+		{57FA2E9A-FA67-4E88-9974-7CBB5F3138A8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{57FA2E9A-FA67-4E88-9974-7CBB5F3138A8}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{57FA2E9A-FA67-4E88-9974-7CBB5F3138A8}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{57FA2E9A-FA67-4E88-9974-7CBB5F3138A8}.Release|Any CPU.Build.0 = Release|Any CPU
+		{0279A3EF-07C1-4D88-8BBE-BD1D7B29A79D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0279A3EF-07C1-4D88-8BBE-BD1D7B29A79D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0279A3EF-07C1-4D88-8BBE-BD1D7B29A79D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0279A3EF-07C1-4D88-8BBE-BD1D7B29A79D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F694EC9F-AC5A-48A7-AD72-6B84C488B5CE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F694EC9F-AC5A-48A7-AD72-6B84C488B5CE}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F694EC9F-AC5A-48A7-AD72-6B84C488B5CE}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F694EC9F-AC5A-48A7-AD72-6B84C488B5CE}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A438F98F-771E-4474-8A83-68722306F249}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A438F98F-771E-4474-8A83-68722306F249}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A438F98F-771E-4474-8A83-68722306F249}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A438F98F-771E-4474-8A83-68722306F249}.Release|Any CPU.Build.0 = Release|Any CPU
+		{385E8317-7FD7-4E5D-95D8-042A9DA41265}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{385E8317-7FD7-4E5D-95D8-042A9DA41265}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{385E8317-7FD7-4E5D-95D8-042A9DA41265}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{385E8317-7FD7-4E5D-95D8-042A9DA41265}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

@@ -1,0 +1,201 @@
+﻿<style>
+    #backgroundImage {
+        content: "";
+        display: block;
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        opacity: 0.25;
+        z-index: -1;
+        background-repeat: no-repeat;
+        -webkit-background-size: cover;
+        -moz-background-size: cover;
+        -o-background-size: cover;
+        background-size: cover;
+    }
+</style>
+
+<div id="shellview" name="shellview" data-ng-controller="shell as vm">
+    <header class="clearfix">
+        <div data-ng-include="'app/views/layout/topnav.html'"></div>
+    </header>
+    
+    <section id="content" class="content">
+        <!-- this is the sidebar which DOES have it's own controller -->
+        <div data-ng-include="showSideBar ? 'app/views/layout/sidebar.html' : null"></div>
+        <div data-ng-show="vm.isBusy" class="page-splash dissolve-animation">
+            <div data-cc-spinner="vm.spinnerOptions"></div>
+            <div class="page-splash-message page-splash-message-subtle">{{vm.busyMessage}}</div>
+        </div>
+        &nbsp;<br />
+        <header class="logobar">
+            <div class="row">
+                <div class="input-medium pull-left">
+                    <!--<a href='{{vm.client.ThinkgateLogoLinkToURL}}' target="_blank">-->
+                    <img ng-src='{{vm.client.ThinkgateLogoLocation}}' />
+                    <!--<div style="color:#565294; font-size:14px; width:100%; white-space: nowrap">unlocking intelligent decisions</div>-->
+                    <!--</a>-->
+                </div>
+                <div class="input-large pull-right" data-ng-hide="hideClientLogo">
+                    <a href={{vm.client.ClientLogoLinkToURL}} target="_blank">
+                        <img ng-src='{{vm.client.ClientLogoImageLocation}}' /><br>
+                    </a>
+                </div>
+            </div>
+        </header>
+
+        <section id="login-view" class="mainbar" data-ng-show="loginsection" ng-cloak>
+            <div id="backgroundImage" style="background-image: url({{vm.client.ClientBackgroundImageLocation}});"></div>
+            <div class="matter">
+                <div class="container-fluid">
+                    <div class="row-fluid">
+                        <div class="span12">
+                            <div class="widget wviolet">
+                                <div data-ng-show="vm.errorMessage.length>0">
+                                    <div class="alert alert-error">
+                                        <span ng-bind-html="vm.errorMessage | userHtml"></span>
+                                    </div>
+                                    <!--<div class="divider"></div>-->
+                                </div>
+                                <div data-cc-widget-header title="{{vm.title}}"></div>
+                                <div class="divider"></div>
+                                <span data-ng-hide="registrationNoticeMode" style="color: Red">* Indicates required information.</span>
+                                <form id="userlogin" name="login" data-ng-show="loginMode">
+                                    <div name="loginForm" role="form" class="widget-details">
+                                        <div class="divider"></div>
+                                        <h4>
+                                            <strong>Email Address: </strong><span style="color: Red">*</span>
+                                        </h4>
+                                        <input id="username" name="username" type="text" placeholder="Email Address ..." required data-ng-model="userlogin.Email" />
+                                        <div class="divider"></div>
+                                        <h4>
+                                            <strong>Password: </strong><span style="color: Red">*</span>
+                                        </h4>
+                                        <input id="passwrd" name="passwrd" type="password" placeholder="Password ..." required data-ng-model="userlogin.Password" />
+                                        <div class="divider"></div>
+                                        <button style="background-color: white;" type="submit" data-ng-click="logon(loginForm, userlogin)">Submit</button>
+                                        <div class="divider"></div>
+                                        <br />
+                                        <a href="javascript:;" data-ng-click="showReset()">| Forgot My Password  </a>|
+                                        <a href="javascript:;" data-ng-click="showRegistration()">Registration</a> |<br />
+                                    </div>
+                                </form>
+
+                                <form id="reset" name="resetUser" data-ng-show="resetMode">
+                                    <div name="resetForm" role="form" class="widget-details">
+                                        <div class="divider"></div>
+                                        <div class="divider"></div>
+                                        <div data-ng-show="resetRedirectMessageMode">
+                                            <div class="alert alert-info">
+                                                {{vm.redirectMessage}}
+                                            </div>
+                                            <!--<div class="divider"></div>-->
+                                        </div>
+                                        <table>
+                                            <tr>
+                                                <td>
+                                                    <h4>
+                                                        <strong>Email: </strong><span style="color: Red">*</span>
+                                                    </h4>
+                                                    <input id="email" name="email" type="text" placeholder="Email Address ..." data-ng-model="reset.Email" required />
+                                                    <div class="divider"></div>
+                                                    <input id="resetCode" type="hidden" data-ng-model="TmpCode" required />
+                                                    <div class="divider"></div>
+                                                    <h4>
+                                                        <strong>New Password: </strong><span style="color: Red">*</span>
+                                                    </h4>
+                                                    <input id="password" name="password" type="password" placeholder="Password ..." data-ng-model="reset.NewPassword" required /><br>
+                                                    <h4>
+                                                        <strong>Confirm Password: </strong><span style="color: Red">*</span>
+                                                    </h4>
+                                                    <input id="confirmpassword" name="confirmpassword" type="password" placeholder="Confirm Password ..." data-ng-model="reset.ConfirmPassword" required /><br>
+                                                    <button style="background-color: white;" type="submit" data-ng-click="resetPass(resetForm, reset, TmpCode)">Submit</button><br />
+                                                    <br />
+                                                    <a href="javascript:;" data-ng-click="showLogin()" data-ng-hide="TmpCode != undefined && TmpCode.length > 0">| Back To Login | </a>
+                                                </td>
+                                                <td style="width:20px;">&nbsp;</td>
+                                                <td>
+                                                    &nbsp;<br />&nbsp;<br />&nbsp;<br />
+                                                    <div class="alert alert-info">
+                                                        <div>
+                                                            <h5 class="violet">Password Requirements</h5>
+                                                            <ul class="widget-details-medium">
+                                                                <li ng-show="vm.passwordRequirements.PasswordLength != null && vm.passwordRequirements.PasswordLength * 1 > 0">
+                                                                    Must be at least {{vm.passwordRequirements.PasswordLength}} character{{vm.passwordRequirements.PasswordLength*1>1?"s":""}} long.
+                                                                </li>
+                                                                <li ng-show="vm.passwordRequirements.PasswordRequireNonLetterOrDigit == 'true'">
+                                                                    Must contain a special character(s) (~!@#$%^&*()_+).
+                                                                </li>
+                                                                <li ng-show="vm.passwordRequirements.PasswordRequireDigit == 'true'">
+                                                                    Must contain a numeric character(s).
+                                                                </li>
+                                                                <li ng-show="vm.passwordRequirements.PasswordRequireLowercase == 'true'">
+                                                                    Must contain a lower-case character(s).
+                                                                </li>
+                                                                <li ng-show="vm.passwordRequirements.PasswordRequireUppercase == 'true'">
+                                                                    Must contain an upper-case character(s).
+                                                                </li>
+                                                            </ul>
+                                                        </div>
+                                                    </div>
+                                                </td>
+                                            </tr>
+                                        </table>
+                                    </div>
+                                </form>
+
+                                <form id="registration" name="registration" data-ng-show="registrationMode">
+                                    <div name="registrationForm" role="form" class="widget-details">
+                                        <div class="divider"></div>
+                                        <div class="divider"></div>
+                                        <h4>
+                                            <strong>Parent ID: </strong><span style="color: Red">*</span>
+                                        </h4>
+                                        <input id="guid" name="guid" type="text" placeholder="Parent ID ..." data-ng-model="registration.Guid" required />
+                                        <div class="divider"></div>
+                                        <h4>
+                                            <strong>Student ID: </strong><span style="color: Red">*</span>
+                                        </h4>
+                                        <input id="studentId" name="studentId" type="text" placeholder="Student ID ..." data-ng-model="registration.StudentId" required />
+                                        <div class="divider"></div>
+                                        <h4>
+                                            <strong>Email Address: </strong><span style="color: Red">*</span>
+                                        </h4>
+                                        <input id="regEmail" name="regEmail" type="text" placeholder="Email Address ..." data-ng-model="registration.Email" required />
+                                        <div class="divider"></div>
+                                        <button style="background-color: white;" type="submit" data-ng-click="register(registrationForm, registration)">Submit</button><br />
+                                        <br />
+                                        <a href="javascript:;" data-ng-click="showLogin()">| Back To Login | </a>
+                                    </div>
+                                </form>
+                                <div id="registrationNotice" name="registrationNotice" data-ng-show="registrationNoticeMode">
+                                    <div>
+                                        <p>An email has been generated with a link to create a password for accessing the Parent-Student Portal.</p>
+                                        <p>Please check the email account that was registered on the previous page and click the link within the email.</p>
+                                        <p>
+                                            Sincerely,<br />
+                                            Thinkgate
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <div data-ng-view class="shuffle-animation"></div>
+    </section>
+</div>
+
+<footer>
+    <section class="pager">
+        <div class="text-center">
+            <div class="clearfix"></div>
+            <small>Copyright: This product was developed by Thinkgate LLC and implemented for Georgia Paulding Department of Education.</small>
+            <div class="clearfix"></div>
+        </div>
+    </section>
+</footer>

@@ -1,0 +1,20 @@
+﻿<div data-cc-sidebar data-ng-controller="sidebar as vm">
+    <div class="sidebar-filler"></div>
+    <div class="sidebar-dropdown"><a href="#">Menu</a></div>
+    <div class="sidebar-inner">
+        <div class="sidebar-widget">
+        </div>
+        <ul class="navi">    <!-- This actually calls a js event on the controller for sidebar called setSubMenu(subMenu) -->
+            <li class="nblack fade-selection-animation {{vm.isCurrent(r)}}" data-ng-class="{'dropdown-submenu': r.config.settings.subMenus != null && r.config.settings.subMenus.length > 0}"
+                data-ng-repeat="r in vm.navRoutes">
+                <a href="javascript:;" data-ng-click="setPath(r)" data-ng-bind-html="r.config.settings.content + isAlertSet(r)"></a>
+                <ul class="navi dropdown-menu" data-ng-show="r.config.settings.subMenus != null && r.config.settings.subMenus.length > 0">
+                    <li class="nblack fade-selection-animation" data-ng-repeat="subMenu in r.config.settings.subMenus" data-ng-class="vm.isCurrent(subMenu)">
+                        <a class="white sidebar" tabindex="-1" href="javascript:;" data-ng-click="setSubMenu(subMenu)" data-ng-bind-html="subMenu.config.settings.content">
+                        </a>
+                    </li>
+                </ul>
+            </li>
+        </ul>
+    </div>
+</div>

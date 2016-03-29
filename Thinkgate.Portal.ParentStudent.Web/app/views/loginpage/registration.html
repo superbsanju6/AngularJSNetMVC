@@ -1,0 +1,115 @@
+﻿<section id="registration-view" data-ng-controller="registration as vm">
+
+    <header class="clearfix">
+    </header>
+
+    <section class="matter">
+        <div class="container-fluid">
+            <div class="row-fluid">
+                <div class="widget wviolet">
+                    <div data-cc-widget-header title="{{vm.title}}"></div>
+                    <div class="divider"></div>
+                    
+                    <div id="registration" style="padding-left: 10px">
+                        <div class="divider"></div>
+                        <div class="divider"></div>
+                        <label class="label">
+                            First Name: <span style="color: Red">*</span>
+                        </label>
+                        <input id="firstName" type="text" data-ng-model="firstName" required />
+                        <div class="divider"></div>
+                        <<label class="label">
+                            Last Name: <span style="color: Red">*</span>
+                        </label>
+                        <input id="lastName" type="text" data-ng-model="firstName" required />
+                        <div class="divider"></div>
+                        <label class="label">
+                            Email: <span style="color: Red">*</span>
+                        </label>
+                        <input id="email" type="text" data-ng-model="useremail" required />
+                        <div class="divider"></div>
+                        <label class="label">
+                           Password: <span style="color: Red">*</span>
+                        </label>
+                        <input id="password" type="password" data-ng-model="password" required /><br>
+                        <label class="label">
+                            Confirm Password: <span style="color: Red">*</span>
+                        </label>
+                        <input id="confirmpassword" type="password" data-ng-model="password" required /><br>
+                        <button style="background-color: white;" type="submit" data-ng-click="submit()">Submit</button><br />
+                        <br />
+                        <a href="#/loginpage">| Back To Login | </a> 
+                    </div>
+                    <div class="widget-foot">
+                        <p>Disclaimer: This Product Was Developed by Thinkgate LLC and Implemented for Ohio Department of Education</p>
+                        <div class="clearfix"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+</section>
+<a href="registration.html">registration.html</a>
+
+
+<!--<section id="registration-view" class="container-fluid" data-ng-controler="registration as vm">
+    <h5>Register</h5>
+    <div class="divider"></div>
+    <div data-ng-show="errorMessage">
+        <div class="error-message">
+            {{errorMessage}}
+        </div>
+        <div class="divider"></div>
+    </div>
+    <div class="label">
+        <label id="firstname">
+            First Name<span style="color: Red">*</span>
+        </label>
+        <input type="text" id="firstName" placeholder="First Name" required data-ng-model="userRegistration.firstName" />
+    </div><div class="divider"></div>
+    <div class="label">
+        <label id="lastName">
+            Last Name<span style="color: Red">*</span>
+        </label>
+        <input type="text" id="lastName" placeholder="Last Name" required data-ng-model="userRegistration.lastName" />
+    </div><div class="ui divider"></div>
+    <div class="label">
+        <label for="email">
+            Email<span style="color: Red">*</span>
+        </label>
+        <input type="text" id="email" placeholder="Email" required data-ng-model="userRegistration.email" />
+    </div><div class="divider"></div>
+    <div class="label">
+        <label for="password">
+            Password<span style="color: Red">*</span>
+        </label>
+        <input type="password" id="password" placeholder="Password" required data-ng-model="userRegistration.password" />
+        <span ng-show="registrationform.password.$dirty && registrationform.password.$error.passwordlength">Password should contain at least 6 characaters</span>
+    </div><div class="divider"></div>
+
+    <div class="label">
+        <label for="confirmpassword">
+            Confirm Password<span style="color: Red">*</span>
+            <span data-ng-show="registrationform.confirmpassword.$error.passwordlength">Password should contain at least 6 characaters</span>
+        </label>
+        <input type="password" id="confirmpassword" placeholder="Password" required data-ng-model="userRegistration.confirmPassword" />
+    </div><div class="divider"></div>
+
+
+    <div class="inline btn">
+        <button data-ng-disabled="registrationform.$invalid" data-ng-click="register(userRegistration)"
+                class="btn-mini blue">
+            Register
+        </button>
+        <button style="background-color: white;" type="submit" data-ng-click="submit()">Submit</button>
+
+        <!--<li class="nlightblue fade-selection-animation" data-ng-class="vm.isCurrent(r)"-->
+<!-- This is the real way to load templates on, not toggle divs-->
+<!--    data-ng-repeat="r in vm.navRoutes">  -->
+<!--    <a href="#{{r.url}}" data-ng-bind-html="r.config.settings.content"></a>    -->
+<!--  </li>-->
+<!--<a href="javascript:;" data-ng-click="toggleMode('login')">Back to Login</a>
+    </div>
+</section>-->
+
+-->

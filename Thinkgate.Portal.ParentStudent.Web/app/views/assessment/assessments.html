@@ -1,0 +1,359 @@
+﻿<style>
+    legend {
+        white-space: normal;
+        width: 100%;
+        *margin-left: -7px;
+    }
+
+        legend span {
+            display: block;
+            width: 100%;
+        }
+</style>
+
+<section id="assmt" class="mainbar" data-ng-controller="assessments as vm">
+    <div data-ng-controller="profile as p">
+        &nbsp;<br />
+        <div data-ng-show="p!=null && p.students!=null && p.students.length>0">
+            <ul class="nav nav-tabs nav-pills nav-stacked">
+                <li data-ng-repeat="student in p.students" data-ng-class="{'active':{{(CurrentStudent==''||CurrentStudent==null)?'0':CurrentStudent.Id.toString()}}=={{student.Id.toString()}}}">
+                    <a data-toggle="tab" data-ng-click="vm.setStudentId(student)">
+                        <img data-ng-src="content/images/blankperson.png" alt="{{student.FirstName}} {{student.LastName}}" class="input-xsmall" />
+                        <span class="icon-exclamation-sign smallCornerIcon" data-ng-if="student.AlertFlag"></span>
+                        {{student.FirstName}} {{student.LastName}}
+                    </a>
+                </li>
+            </ul>
+        </div>
+    </div>
+    <!--<section class="matter">-->
+    <div class="container-fluid">
+        <div class="row-fluid">
+            <!-- This is the name header that i should create a partial out of -->
+            <div class="page-title text-center">
+                <h1><strong>{{vm.student.FirstName}} {{vm.student.LastName}}</strong></h1>
+            </div>
+        </div>
+
+        <div class="row-fluid">
+            <div class="widget-content">
+                <!--<h2 class="text-center"><strong>{{vm.page.subtitle}}</strong></h2>-->
+                <!--<div class="text-center"><span class="bold"><h3>{{vm.page.pageView}}</h3></span></div>-->
+                <!--<div class="text-center text-info"><span class="bold">Choose Assessment Type</span></div>-->
+
+                <div class="widget-details well-small">
+                    <ul class="today-datas pagination-centered">
+                        <li class="bgreen">
+                            <a href="javascript:;" data-ng-click="showScore()">
+                                <div class="small-icon pull-left">
+                                    <i class="icon-file-text"></i>
+                                </div>
+                                <div class="datas-text-small pull-right">
+                                    <span class="bold">{{vm.page.subtitle}}</span>
+                                    {{vm.page.subtitleA}}
+                                </div>
+                                <div class="clearfix"></div>
+                            </a>
+                        </li>
+                        <li class="bgreen">
+                            <a href="javascript:;" data-ng-click="showProficiency()">
+                                <div class="small-icon pull-left">
+                                    <i class="icon-pencil"></i>
+                                </div>
+                                <!--<div class="divider divider-vertical"></div>-->
+                                <div class="datas-text-small pull-right">
+                                    <span class="bold">{{vm.page.subtitle1}}</span>
+                                    {{vm.page.subtitleB}}
+                                </div>
+                                <div class="clearfix"></div>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="container-fluid">
+        <div class="row-fluid">
+            <div class="span12">
+                <div id="userscore" name="score" data-ng-show="scoreMode">
+                    <div name="scoreForm" role="form">
+                        <div class="widget wviolet">
+                            <div data-cc-widget-header title="{{vm.title}}" allow-collapse="true"></div>
+                            <div id="widgetAssessmentScores" class="widget-content">
+                                {{vm.ScoreEmptyMessage}}
+                                <!--<h4 class="orange text-center">This data will be last 14 days. "Scores Per Class" below shows all grades: this label is to be removed once 14-day 'if' statement is uncommented</h4>-->
+                                <!-- display Scores for 14 days inside of here: -->
+                                <div name="score14daysForm" role="form" style="display: table; width:100%">
+                                    <div class="span7">
+                                        <ul>
+                                            <div class="css-treeview center">
+                                                <li data-ng-repeat="(key, values) in vm.Scores">
+                                                    <input type="checkbox" id="item-{{key}}" checked="checked" /><label for="item-{{key}}">{{key}}</label>
+                                                    <ul>
+                                                        <li>
+                                                            <table class="table table-condensed table-hover">
+                                                                <thead class="widget">
+                                                                    <tr>
+                                                                        <th style="text-align:center; width:20%">Date</th>
+                                                                        <th style="text-align:left;">Assessment Description</th>
+                                                                        <th style="text-align:right">Student Score</th>
+                                                                        <th style="text-align:right">Class Average</th>
+                                                                    </tr>
+                                                                </thead>
+                                                                <tbody>
+                                                                    <tr data-ng-repeat="s in values">
+                                                                        <td style="text-align: center;">{{s.ScoredDate}}</td>
+                                                                        <td style="text-align:left;">{{s.Description}}</td>
+                                                                        <td style="text-align: right;">{{s.ScorePercent}}</td>
+                                                                        <td style="text-align: right;">{{s.ClassAverage}}</td>  <!--* 100 | number:2-->
+                                                                    </tr>
+                                                                </tbody>
+                                                            </table>
+                                                        </li>
+                                                    </ul>
+                                                </li>
+                                            </div>
+                                        </ul>
+                                    </div>
+                                </div>
+
+                                <!--<div id="ScoreChart_div"></div> this is the google chart, d3 must have an svg element declared
+                                    <div id="Chart_holder">
+                                    <div class="row-fluid">
+                                        <div class="span9">
+                                            <div class="widget wviolet">
+                                                <div data-cc-widget-header title="{{vm.widgetchart.header}}" allow-collapse="true"></div>
+                                                <div class="widget-content">
+                                                    <svg id="ScoreChart_div"></svg>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="row-fluid">
+                                        <div id="ScoreChart_div"></div>
+                                    </div>-->
+
+                            </div>
+
+                        </div>
+
+                    </div>
+                    <!--I am going to put ScoreDetail inside of here: I will need to fix the ng-show attr on the controller-->
+                    <div name="scoreForm" role="form">
+                        <div class="widget wviolet">
+                            <div data-cc-widget-header title="{{vm.subTitle}}" allow-collapse="true"></div>
+                            <div id="widgetAssessmentScores" class="widget-content">
+
+                                <div id="userscoredetail" name="scoredetail" data-ng-show="scoreModeDetail">
+                                    <div class="row-fluid">
+                                        <div class="span12 well well-large">
+                                            <div>
+                                                <div id="ScoreChart_div"></div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="text-center">
+                                        <div class="divider dl-horizontal"></div>
+                                        <h2>Scores Per Class</h2><span class="text-info text-center bold">(Dates through {{vm.minDate}} - {{vm.maxDate}})</span>
+                                        <div class="divider"></div>
+                                    </div>
+                                    <div name="scoredetailForm" role="form" style="display: table; width:100%">
+                                        <div class="span7">
+                                            <ul>
+                                                <div id="ScoreTreeDetail_div" class="css-treeview center">
+                                                    <li data-ng-repeat="(key, values) in vm.ScoresDetail">
+                                                        <input type="checkbox" id="item-{{key}}" checked="checked" /><label for="item-{{key}}">{{key}}</label>
+                                                        <ul>
+                                                            <div class="css-treeview center">
+                                                                <li data-ng-repeat="(keyInner, valuesInner) in values | ConvertToArray ">
+                                                                    <input type="checkbox" id="item-{{valuesInner[0].Month}}" checked="checked" /><label for="item-{{keyInner}}">{{valuesInner[0].Month}}</label>
+                                                                    <ul>
+                                                                        <li>
+                                                                            <table class="table table-condensed table-hover">
+                                                                                <thead class="widget">
+                                                                                    <tr>
+                                                                                        <th style="text-align:center; width:20%">Date</th>
+                                                                                        <th style="text-align:left;">Assessment Description</th>
+                                                                                        <th style="text-align:right">Student Score</th>
+                                                                                        <th style="text-align:right">Class Average</th>
+                                                                                    </tr>
+                                                                                </thead>
+                                                                                <tbody>
+                                                                                    <tr data-ng-repeat="s in valuesInner">
+                                                                                        <td style="text-align: center;">{{s.ScoredDate}}</td>
+                                                                                        <td style="text-align:left;">{{s.Description}}</td>
+                                                                                        <td style="text-align: right;">{{s.ScorePercent}}</td>
+                                                                                        <td style="text-align: right;">{{s.ClassAverage}}</td>  <!--* 100 | number:2-->
+                                                                                    </tr>
+                                                                                </tbody>
+                                                                            </table>
+                                                                        </li>
+                                                                    </ul>
+                                                                </li>
+                                                            </div>
+                                                        </ul>
+                                                    </li>
+                                                </div>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div id="userproficiency" name="proficiency" data-ng-show="proficiencyMode">
+                    <div name="proficiencyForm" role="form">
+                        <div class="widget wviolet">
+                            <div data-cc-widget-header title="{{vm.title}}" allow-collapse="true"></div>
+                            <div class="widget-content">
+                                <form name="reportForm" role="form" class="widget-details">
+                                    <select data-ng-model="report.class" data-ng-change="ChangeReport(reportForm,report , true)" required data-ng-options="o as o.Course for o in vm.Proficiency  | unique: 'CourseId'">
+                                        <option value="">-- Choose Curriculum --</option>
+                                    </select>
+                                    &nbsp;
+                                    <select data-ng-model="report.domain" data-ng-change="ChangeReport(reportForm,report , false)" required data-ng-options="o as o.DescElipse for o in vm.Standards | unique: 'Desc' | orderBy : 'Desc' | filter : report.class.CourseId">
+                                        <option value="">-- Choose Domain --</option>
+                                    </select>
+                                    <div class="inner-content">
+                                        <div class="lab">Curriculum</div><div class="dot">:</div><div class="cont">{{report.class.Course}}</div>
+                                        <div style="clear:both"></div>
+                                        <div class="lab">Domain</div><div class="dot">:</div><div class="cont">{{report.domain.Desc}}</div>
+                                    </div>
+
+                                    <iframe id="ifreportContent" class="report-frame" src="{{vm.SSRSFrameUrl}}"></iframe>
+                                </form>
+                                <div class="clearfix"></div>
+                                <!--<div id="ProficiencyChart_div" class="row-fluid"></div>
+                                &nbsp;<br />
+                                <table class="table table-condensed table-center table-hover">
+                                    <thead>
+                                        <tr>
+                                            <th>Standard</th>
+                                            <th>Subject</th>
+                                            <th>Course</th>
+                                            <th class="pull-right">Proficiency %</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr data-ng-repeat="p in vm.Proficiency">
+                                            <td>{{p.Description}}</td>
+                                            <td>{{p.Subject}}</td>
+                                            <td>{{p.Course}}</td>
+                                            <td style="text-align: right;">{{p.ScorePercent}}</td>
+                                        </tr>
+                                    </tbody>
+                                </table>-->
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!--</div>
+                    </div>
+                </div>-->
+                <!--<div class="container-fluid">-->
+                <!--<div class="row-fluid">-->
+                <!--<div class="span12">-->
+                <!--<div id="userscoredetail" name="scoredetail" data-ng-show="scoreModeDetail">
+                <div name="scoredetailForm" role="form">-->
+                <!--<div class="widget wviolet">
+                            <div data-cc-widget-header title="{{vm.title}}" allow-collapse="true"></div>
+                            <div class="widget-content">
+                                <table class="table table-condensed table-center table-hover">
+                                    <thead class="widget widget-lbl-underline">
+                                        <tr>
+                                            <th>Assessment Date</th>
+                                <th>Class</th>-->
+                <!--<th>Course</th>-->
+                <!--<th style="text-align:center">Student Score</th>
+                                            <th style="text-align:center">Class Average</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr data-ng-repeat="s in vm.ScoresDetail | filter:course ">
+                                            <td style="text-align: left; width:180px;">{{s.ScoredDate}}</td>
+                        <td>{{s.Course}}  {{s.Subject}}</td>-->
+                <!--<td>{{s.Course}}</td>-->
+                <!--<td style="text-align: center;">{{s.ScorePercent}}</td>
+                                            <td style="text-align: center;">{{s.ClassAverage}}</td>
+                                        </tr>
+                                    </tbody>
+                </table>-->
+                <!--<div id="ScoreChartDetail_div"></div>-->
+                <!--<div id="ScoreTreeDetail_div" class="css-treeview">
+                    <span class="widget-lbl-underline">Scores by Class</span>
+                    <ul>
+                        <li data-ng-repeat="course in vm.Courses">
+                            <input type="checkbox" id="item-{{course}}" /><label for="item-{{course}}">{{course}}</label>
+                            <ul>
+                                <li>
+                                    <table class="table table-condensed table-center table-hover">
+                                        <thead class="widget widget-lbl-underline">
+                                            <tr>
+                                                <th style="text-align:center">Date</th>
+                                                <th style="text-align:center">Student Score</th>
+                                                <th style="text-align:center">Class Average</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <tr data-ng-repeat="s in vm.ScoresDetail | filter:course">
+                                                <td style="text-align: center;">{{s.ScoredDate}}</td>
+                                                <td style="text-align: center;">{{s.ScorePercent}}</td>
+                                                <td style="text-align: center;">{{s.ClassAverage}}</td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </li>
+                            </ul>
+                        </li>
+                    </ul>
+                </div>-->
+
+
+            </div>
+            <!--</div>
+                </div>-->
+            <!--<div id="ScoreChartDetail_div"></div>-->
+            <!--<h3><span class="widget-lbl-underline">Scores by Class</span></h3>-->
+            <!--<div class="text-center">
+                        <div class="divider dl-horizontal"></div>
+                        <h2>Scores Per Class</h2><span class="info text-center">(Expand each class for specifics)</span>
+                        <div class="divider"></div>
+            </div>-->
+            <!--<div class="container-fluid">
+                                    <div class="span12">
+                                        <div id="ScoreTreeDetail_div" class="css-treeview center">
+                                        <ul>
+                                                <li data-ng-repeat="course in vm.Courses">
+                                                    <input type="checkbox" id="item-{{course}}" /><label for="item-{{course}}">{{course}}</label>
+                                                    <ul>
+                                                        <li>
+                                                            <table class="table table-condensed table-center table-hover">
+                                                                <thead class="widget widget-lbl-underline">
+                                                                    <tr>
+                                                                        <th style="text-align:center">Date</th>
+                                                                        <th style="text-align:center">Student Score</th>
+                                                                        <th style="text-align:center">Class Average</th>
+                                                                    </tr>
+                                                                </thead>
+                                                                <tbody>
+                                                                    <tr data-ng-repeat="s in vm.ScoresDetail | filter:course">
+                                                                        <td style="text-align: center;">{{s.ScoredDate}}</td>
+                                                                        <td style="text-align: center;">{{s.ScorePercent}}</td>
+                                                                <td style="text-align: center;">{{s.ClassAverage}}</td>  * 100 | number:2
+                                                                    </tr>
+                                                                </tbody>
+                                                            </table>
+                                                        </li>
+                                                    </ul>
+                                                </li>
+                                            </ul>
+                                        </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>-->
+        </div>
+    </div>
+</section>

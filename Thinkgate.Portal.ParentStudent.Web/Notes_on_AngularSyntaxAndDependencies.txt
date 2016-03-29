@@ -1,0 +1,21 @@
+﻿
+|---* J. Derrick Williams *---|
+[June 2, 2014] - Notes for future development to reference.
+
+'$promise', '$q', or just 'q':   represent "promises" which are a driving factor in AngularJS logic
+In AngularJS, when working with objects, services for example, you return what is called a 'promise', some base versions
+in Angular identify this promise as:    "$promise", "$q" as well as "q".  
+If you look in one of the latest versions of the driving file for AngularJS (below), 
+/*
+ AngularJS v1.2.9
+ (c) 2010-2014 Google, Inc. http://angularjs.org
+ License: MIT
+*/
+
+you will see this block of code:
+                                  // this t?q below is using the 'q' WITHOUT the '$' sign to reference the promise
+(a,b.headers);return a},C);return t?q:(m.$promise=q,m.$resolved=!1,m)};
+f.prototype["$"+d]=function(b,a,k){u(b)&&(k=a,a=b,b={});b=f[d].call(this,b,this,a,k);return b.$promise||b}});
+f.bind=function(a){return t(n,x({},w,a),l)};return f}
+
+This is what lets us use $q for a short syntax representation of '$promise'

@@ -1,0 +1,139 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="VersaITBaseTME3V3QAModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2008" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="Students">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Page" Type="int" />
+          <Property Name="Student_Name" Type="varchar" MaxLength="50" />
+          <Property Name="Student_ID" Type="varchar" MaxLength="20" />
+          <Property Name="District" Type="int" />
+          <Property Name="School" Type="int" />
+          <Property Name="Grade" Type="varchar" MaxLength="20" />
+          <Property Name="Email" Type="varchar" MaxLength="50" />
+          <Property Name="LoginID" Type="varchar" MaxLength="20" />
+          <Property Name="Keywords" Type="varchar" MaxLength="200" />
+          <Property Name="Demo1" Type="varchar" MaxLength="50" />
+          <Property Name="Demo2" Type="varchar" MaxLength="5" />
+          <Property Name="Demo3" Type="varchar" MaxLength="5" />
+          <Property Name="Demo4" Type="varchar" MaxLength="5" />
+          <Property Name="Demo5" Type="varchar" MaxLength="5" />
+          <Property Name="Demo6" Type="varchar" MaxLength="5" />
+          <Property Name="Demo7" Type="varchar" MaxLength="5" />
+          <Property Name="Email2" Type="varchar" MaxLength="100" />
+          <Property Name="birthdate" Type="smalldatetime" />
+          <Property Name="Student_State_ID" Type="varchar" MaxLength="20" />
+          <Property Name="Demo8" Type="varchar" MaxLength="5" />
+          <Property Name="Demo9" Type="varchar" MaxLength="5" />
+          <Property Name="Demo10" Type="varchar" MaxLength="5" />
+          <Property Name="Picture" Type="varchar" MaxLength="100" />
+          <Property Name="aspnet_UsersID" Type="uniqueidentifier" />
+        </EntityType>
+        <EntityContainer Name="VersaITBaseTME3V3QAModelStoreContainer">
+          <EntitySet Name="Students" EntityType="Self.Students" Schema="dbo" store:Type="Tables" />
+        </EntityContainer>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="VersaITBaseTME3V3QAModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="Student">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Page" Type="Int32" />
+          <Property Name="Student_Name" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Student_ID" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="District" Type="Int32" />
+          <Property Name="School" Type="Int32" />
+          <Property Name="Grade" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="Email" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="LoginID" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="Keywords" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+          <Property Name="Demo1" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Demo2" Type="String" MaxLength="5" FixedLength="false" Unicode="false" />
+          <Property Name="Demo3" Type="String" MaxLength="5" FixedLength="false" Unicode="false" />
+          <Property Name="Demo4" Type="String" MaxLength="5" FixedLength="false" Unicode="false" />
+          <Property Name="Demo5" Type="String" MaxLength="5" FixedLength="false" Unicode="false" />
+          <Property Name="Demo6" Type="String" MaxLength="5" FixedLength="false" Unicode="false" />
+          <Property Name="Demo7" Type="String" MaxLength="5" FixedLength="false" Unicode="false" />
+          <Property Name="Email2" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="birthdate" Type="DateTime" Precision="0" />
+          <Property Name="Student_State_ID" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="Demo8" Type="String" MaxLength="5" FixedLength="false" Unicode="false" />
+          <Property Name="Demo9" Type="String" MaxLength="5" FixedLength="false" Unicode="false" />
+          <Property Name="Demo10" Type="String" MaxLength="5" FixedLength="false" Unicode="false" />
+          <Property Name="Picture" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="aspnet_UsersID" Type="Guid" />
+        </EntityType>
+        <EntityContainer Name="StudentEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="Students" EntityType="Self.Student" />
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="VersaITBaseTME3V3QAModelStoreContainer" CdmEntityContainer="StudentEntities">
+          <EntitySetMapping Name="Students">
+            <EntityTypeMapping TypeName="VersaITBaseTME3V3QAModel.Student">
+              <MappingFragment StoreEntitySet="Students">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="Page" ColumnName="Page" />
+                <ScalarProperty Name="Student_Name" ColumnName="Student_Name" />
+                <ScalarProperty Name="Student_ID" ColumnName="Student_ID" />
+                <ScalarProperty Name="District" ColumnName="District" />
+                <ScalarProperty Name="School" ColumnName="School" />
+                <ScalarProperty Name="Grade" ColumnName="Grade" />
+                <ScalarProperty Name="Email" ColumnName="Email" />
+                <ScalarProperty Name="LoginID" ColumnName="LoginID" />
+                <ScalarProperty Name="Keywords" ColumnName="Keywords" />
+                <ScalarProperty Name="Demo1" ColumnName="Demo1" />
+                <ScalarProperty Name="Demo2" ColumnName="Demo2" />
+                <ScalarProperty Name="Demo3" ColumnName="Demo3" />
+                <ScalarProperty Name="Demo4" ColumnName="Demo4" />
+                <ScalarProperty Name="Demo5" ColumnName="Demo5" />
+                <ScalarProperty Name="Demo6" ColumnName="Demo6" />
+                <ScalarProperty Name="Demo7" ColumnName="Demo7" />
+                <ScalarProperty Name="Email2" ColumnName="Email2" />
+                <ScalarProperty Name="birthdate" ColumnName="birthdate" />
+                <ScalarProperty Name="Student_State_ID" ColumnName="Student_State_ID" />
+                <ScalarProperty Name="Demo8" ColumnName="Demo8" />
+                <ScalarProperty Name="Demo9" ColumnName="Demo9" />
+                <ScalarProperty Name="Demo10" ColumnName="Demo10" />
+                <ScalarProperty Name="Picture" ColumnName="Picture" />
+                <ScalarProperty Name="aspnet_UsersID" ColumnName="aspnet_UsersID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="true" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

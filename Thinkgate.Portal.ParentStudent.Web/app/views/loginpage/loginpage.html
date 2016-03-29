@@ -1,0 +1,109 @@
+﻿<!-- Login form -->
+<section id="login-view" class="mainbar" data-ng-controller="loginpage as vm" data-ng-show="loginsection">
+    <div class="matter">
+        <div class="container-fluid">
+            <div class="row-fluid">
+                <div class="pull-left">
+                    <a href="http://thinkgate.com" target="_blank">
+                        <img data-ng-src="content/images/thinkgate.png" />
+                    </a>
+                </div>
+                <div class="input-small pull-right">
+                    <br />
+                    <a href="http://education.ohio.gov" target="_blank">
+                        <img data-ng-src="content/images/OHDemoLogo.png" /><br>
+                    </a>
+                </div>
+            </div>
+        </div>
+        <div class="container-fluid">
+            <div class="row-fluid">
+                <div class="span12">
+                    <div class="widget wviolet">
+                        <div data-cc-widget-header title="{{vm.title}}"></div>
+                        <div class="divider"></div>
+                        <div id="userlogin" name="login" data-ng-show="loginMode">
+                            <form name="loginForm" role="form" class="widget-details">
+                                <div class="divider"></div>
+                                <div ng-show="errorMessage">
+                                    <div class="error">
+                                        {{errorMessage}}
+                                    </div>
+                                    <div class="divider"></div>
+                                </div>
+                                <h4>
+                                    <strong>User Name: </strong><span style="color: Red">*</span>
+                                </h4>
+                                <input id="username" type="text" placeholder="Email Address..." required data-ng-model="userlogin.Email" />
+                                <div class="divider"></div>
+                                <h4>
+                                    <strong>Password: </strong><span style="color: Red">*</span>
+                                </h4>
+                                <input id="passwrd" type="password" placeholder="Password..." required data-ng-model="userlogin.Password" />
+                                <div class="divider"></div>
+                                <button style="background-color: white;" type="submit" data-ng-click="logon(loginForm, userlogin)">Submit</button>
+                                <div class="divider"></div>
+                                <br />
+                                <a href="javascript:;" data-ng-click="reset()">| Forgot My Password  </a>|
+                                <a href="javascript:;" data-ng-click="showRegistration()">First Time Registration</a> |<br />
+                                
+                            </form>
+                        </div>
+
+                        <div id="reset" name="resetUser" data-ng-show="resetMode">
+                            <form name="resetForm" role="form" class="widget-details">
+                                <div class="divider"></div>
+                                <div class="divider"></div>
+                                <h4>
+                                    <strong>Email: </strong><span style="color: Red">*</span>
+                                </h4>
+                                <input id="email" type="text" placeholder="Email Address..." data-ng-model="reset.Email" required />
+                                <div class="divider"></div>
+                                <h4>
+                                    <strong>Reset Code: </strong><span style="color: Red">*</span>
+                                </h4>
+                                <input id="resetCode" type="text" placeholder="Enter Code Provided..." data-ng-model="reset.TmpCode" required />
+                                <div class="divider"></div>
+                                <h4>
+                                    <strong>New Password: </strong><span style="color: Red">*</span>
+                                </h4>
+                                <input id="password" type="password" placeholder="Password..." data-ng-model="reset.NewPassword" required /><br>
+                                <h4>
+                                    <strong>Confirm Password: </strong><span style="color: Red">*</span>
+                                </h4>
+                                <input id="confirmpassword" type="password" placeholder="Confirm Password..." data-ng-model="reset.ConfirmPassword" required /><br>
+                                <button style="background-color: white;" type="submit" data-ng-click="resetPass(resetForm, reset)">Submit</button><br />
+                                <br />
+                                <a href="javascript:;" data-ng-click="showLogin()">| Back To Login | </a>
+                            </form>
+                        </div>
+
+
+                        <div id="registration" name="registration" data-ng-show="registrationMode">
+                            <form name="registrationForm" role="form" class="widget-details">
+                                <div class="divider"></div>
+                                <div class="divider"></div>
+                                <h3>
+                                    <strong>User Name: </strong><span style="color: Red">*</span>
+                                </h3>
+                                <input id="email" type="text" placeholder="Email Address..." data-ng-model="registration.Email" required />
+                                <div class="divider"></div>
+                                <button style="background-color: white;" type="submit" data-ng-click="register(registrationForm, registration)">Submit</button><br />
+                                <br/>
+                                <a href="javascript:;" data-ng-click="showLogin()">| Back To Login | </a>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+   
+    <section class="pager">
+        <div class="text-center">
+            <div class="clearfix"></div>
+            <small>Copyright: This Product Was Developed by Thinkgate LLC and Implemented for Ohio Department of Education</small>
+            <div class="clearfix"></div>
+        </div>
+    </section>
+</section>

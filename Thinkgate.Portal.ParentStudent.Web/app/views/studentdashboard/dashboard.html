@@ -1,0 +1,128 @@
+﻿<section id="dashboard-view" class="mainbar" data-ng-controller="dashboard as vm">
+    &nbsp;<br />
+    <div data-ng-controller="profile as p">
+        <div data-ng-show="p!=null && p.students!=null && p.students.length>0">
+            <ul class="nav nav-tabs nav-pills nav-stacked">
+                <li data-ng-repeat="student in p.students" data-ng-class="{'active':{{(CurrentStudent==''||CurrentStudent==null)?'0':CurrentStudent.Id.toString()}}=={{student.Id.toString()}}}">
+                    <a data-toggle="tab" data-ng-click="vm.setStudentId(student)">
+                        <img data-ng-src="content/images/blankperson.png" alt="{{student.FirstName}} {{student.LastName}}" class="input-xsmall" />
+                        <span class="icon-exclamation-sign smallCornerIcon" data-ng-if="student.AlertFlag"></span>
+                        {{student.FirstName}} {{student.LastName}}
+                    </a>
+                </li>
+            </ul>
+            <section id="details">
+                <div class="container-fluid">
+                    <div class="row-fluid">
+                        <br />
+                        <div class="page-title text-center" style="background-color: white;">
+                            <h1><strong>{{vm.student.FirstName}} {{vm.student.LastName}}</strong></h1>
+                        </div>
+                    </div>
+                </div>
+                    <!--<br />-->
+                <div class="container-fluid">
+                    <!--<h3 class="text-center"><strong>{{vm.title.profile}}</strong></h3>-->
+                    <div class="row-fluid">
+                        <div class="span10" style="width: 80%; margin-left: 10%; margin-right: 10%;">
+                            <div align="center" class="typeahead well well-large widget widget-details">
+                                <table class="table-condensed widget-lbl">
+                                    <tbody>
+                                        <!--<tr>
+                        <td><strong>{{vm.label.name}}</strong></td>
+                        <td class="pull-left">{{vm.student.FirstName}} {{vm.student.LastName}}</td>
+                    </tr>-->
+                                        <tr>
+                                            <td><strong>{{vm.label.grade}}</strong></td>
+                                            <td class="pull-left">{{vm.student.GradeLevel}}</td>
+
+                                        </tr>
+                                        <tr>
+                                            <td><strong>{{vm.label.school}}</strong></td>
+                                            <td class="pull-left">{{vm.student.SchoolName}}</td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                            <div class="widget-foot">
+                                <div class="clearfix"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="container-fluid">
+                    <!--<div class="page-title-subtle">
+                        <h4 class="text-center"><strong>{{vm.title.course}}</strong></h4>
+                    </div>-->
+                    <div class="row-fluid">
+                        <div class="span10" style="width: 80%; margin-left: 10%; margin-right: 10%;">
+                            <div class="widget wviolet">
+                                <div data-cc-widget-header title="{{vm.title.course}}"
+                                    allow-collapse="false">
+                                </div>
+                                <div class="widget-content">
+                                    <table class="table table-center table-condensed">
+                                        <thead class="widget-lbl widget-lbl-underline">
+                                            <tr>
+                                                <!--<th>{{vm.classLabels.CourseId}}</th>-->
+                                                <th>{{vm.classLabels.Subject}}</th>
+                                                <th>{{vm.classLabels.CourseName}}</th>
+                                                <!--<th>{{vm.classLabels.GradePeriod}}</th>-->
+                                                <!--<th>{{vm.classLabels.Semester}}</th>-->
+                                                <th>{{vm.classLabels.Teacher}}</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody class="widget-details" data-ng-repeat="s in vm.courselist">
+                                            <tr>
+                                                <!-- This will be a ng-repeat -->
+                                                <!--<td>{{s.CourseId}}</td>-->
+                                                <td>{{s.Subject}}</td>
+                                                <td>{{s.CourseName}}</td>
+                                                <!--<td>{{s.Grade}}-{{s.Period}}</td>-->
+                                                <!--<td>{{s.Semester}}</td>-->
+                                                <td>{{s.PrimaryTeacher}}</td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!--<div class="container-fluid">
+                    <div class="row-fluid">
+                        <div class="span10" style="width: 80%; margin-left: 10%; margin-right: 10%;">
+                            <div class="widget wviolet">
+                                <div data-cc-widget-header title="{{vm.attendence.title}}"
+                                    allow-collapse="true">
+                                </div>
+                                <div class="widget-content">
+                                    <table class="table table-center table-condensed table-hover">
+                                        <thead class="widget-lbl widget-lbl-underline">
+                                            <tr>
+                                                <th>{{vm.attendence.absc}}</th>
+                                                <th>{{vm.attendence.tard}}</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody class="widget-details">
+                                            <tr data-ng-repeat="s in vm.students">
+                                                <td>{{s.firstName}}</td>
+                                                <td>{{s.lastName}}</td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+                                <div class="widget-foot">
+                                    <div class="clearfix">
+                                        <p class="text-center"><strong>{{vm.widget.footer}}</strong></p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>-->
+            </section>
+        </div>
+    </div>
+</section>
+
